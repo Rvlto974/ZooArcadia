@@ -1,5 +1,6 @@
-const express =require('express');
+const express = require('express');
 const cors = require('cors');
+const authRoutes = require('./routes/auth.routes');
 
 const app = express();
 
@@ -12,8 +13,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Bienvenue sur l\'API Arcadia Zoo 🦁' });
 });
 
-// TODO: importer les routes ici plus tard
-// const authRoutes = require('./routes/auth.routes');
-// app.use('/api/auth', authRoutes);
+// Routes
+app.use('/api/auth', authRoutes);
 
 module.exports = app;
