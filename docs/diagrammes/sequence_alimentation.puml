@@ -1,0 +1,41 @@
+@startuml sequence_alimentation
+
+actor Employe
+participant "Frontend" as FE
+participant "API Backend" as API
+participant "Middleware Auth" as MW
+database "Base MySQL" as DB
+
+Employe -> FE : Sélectionne un animal
+FE -> API : GET /api/animaux/:id
+API -> MW : Vérifie token JWT
+MW --> API : Token valide (role = employe)
+API -> DB : SELECT * FROM Animal WHERE id = ?
+DB --> API : Retourne animal
+API --> FE : 200 OK {animal}
+FE --> Employe : Affiche fiche animal
+
+Employe -> FE : Remplit formulaire alimentation\n(type, quantité, date/heure)
+FE -> API : POST /api/animaux/:id/alimentations\n{typeNourriture, quantite, dateHeure}
+
+API -> MW : Vérifie token JWT
+MW --> API : Token valide (role = employe)
+
+alt Token invalide ou expiré
+    API --> FE : 401 Unauthorized
+    FE --> Employe : Redirige vers login
+else Token valide
+    API -> API : Valide les données du formulaire
+
+    alt Données invalides
+        API --> FE : 400 Bad Request {erreurs}
+        FE --> Employe : Affiche erreurs de validation
+    else Données valides
+        API -> DB : INSERT INTO Alimentation\n(idAnimal, typeNourriture, quantite, dateHeure)
+        DB --> API : Confirmation insertion (id créé)
+        API --> FE : 201 Created {alimentation}
+        FE --> Employe : Affiche message succès\n+ met à jour l'historique
+    end
+end
+
+@enduml

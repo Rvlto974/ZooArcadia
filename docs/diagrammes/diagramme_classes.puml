@@ -1,0 +1,125 @@
+@startuml diagramme_classes
+
+skinparam classAttributeIconSize 0
+
+class Utilisateur {
+  - id : int
+  - nom : varchar
+  - prenom : varchar
+  - email : varchar
+  - motDePasse : varchar
+  - role : enum(employe, veterinaire, admin)
+  - dateCreation : datetime
+  --
+  + login(email, motDePasse) : token
+  + logout() : void
+  + creerCompte() : void
+  + modifierProfil() : void
+}
+
+class Habitat {
+  - id : int
+  - nom : varchar
+  - description : text
+  - superficie : decimal
+  - commentaireEntretien : text
+  --
+  + ajouterCommentaire(texte) : void
+  + listerAnimaux() : Animal[]
+}
+
+class Race {
+  - id : int
+  - nom : varchar
+  - description : text
+  --
+}
+
+class Animal {
+  - id : int
+  - nom : varchar
+  - dateNaissance : date
+  - sexe : enum(M, F)
+  - etatSante : text
+  - idHabitat : int
+  - idRace : int
+  --
+  + ajouterAlimentation() : void
+  + ajouterRapportVeterinaire() : void
+  + modifierEtatSante() : void
+}
+
+class Alimentation {
+  - id : int
+  - idAnimal : int
+  - dateHeure : datetime
+  - typeNourriture : varchar
+  - quantite : decimal
+  --
+}
+
+class RapportVeterinaire {
+  - id : int
+  - idAnimal : int
+  - idVeterinaire : int
+  - dateRapport : date
+  - contenu : text
+  --
+}
+
+class Image {
+  - id : int
+  - url : varchar
+  - idAnimal : int
+  - idHabitat : int
+  - idService : int
+  --
+}
+
+class Service {
+  - id : int
+  - nom : varchar
+  - description : text
+  - horaires : varchar
+  --
+}
+
+class Avis {
+  - id : int
+  - nomVisiteur : varchar
+  - contenu : text
+  - note : int
+  - isVisible : boolean
+  - dateCreation : datetime
+  --
+  + soumettre() : void
+  + valider() : void
+  + refuser() : void
+}
+
+class Contact {
+  - id : int
+  - nom : varchar
+  - email : varchar
+  - message : text
+  - dateEnvoi : datetime
+  --
+  + envoyer() : void
+}
+
+' Relations
+Utilisateur "1" -- "0..*" RapportVeterinaire : rédige >
+Utilisateur "1" -- "0..*" Avis : modère >
+
+Habitat "1" -- "0..*" Animal : contient >
+Habitat "1" -- "0..*" Image : illustré par >
+
+Race "1" -- "0..*" Animal : appartient à >
+
+Animal "1" -- "0..*" Alimentation : reçoit >
+Animal "1" -- "0..*" RapportVeterinaire : concerné par >
+Animal "1" -- "0..*" Image : illustré par >
+
+Service "1" -- "0..*" Image : illustré par >
+
+@enduml
