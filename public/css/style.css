@@ -1,138 +1,203 @@
-/*
- * Sélecteur universel :
- * s'applique à tous les éléments de la page.
- */
+/* Réinitialisation générale */
 * {
-    /* Supprime les marges par défaut du navigateur */
     margin: 0;
-
-    /* Supprime les espacements intérieurs par défaut */
     padding: 0;
-
-    /*
-     * La largeur et la hauteur incluent aussi
-     * les bordures et les espacements intérieurs.
-     */
     box-sizing: border-box;
 }
 
-/*
- * Style général du corps de la page.
- */
+/* Couleurs principales */
+:root {
+    --vert-fonce: #176b3a;
+    --vert-nature: #6fcf97;
+    --jaune: #f4d35e;
+    --blanc: #ffffff;
+    --texte: #163b25;
+}
+
+/* Style général */
 body {
-    /* Définit la police utilisée sur le site */
     font-family: Arial, sans-serif;
-
-    /* Définit la couleur d'arrière-plan de la page */
-    background-color: #87ceeb;
+    background-color: #f1f8f3;
+    color: var(--texte);
 }
 
-/*
- * Barre de navigation principale.
- */
+/* Navigation */
 .navbar {
-    /*
-     * Active Flexbox pour organiser
-     * le logo et le menu sur une ligne.
-     */
     display: flex;
-
-    /*
-     * Place le logo à gauche
-     * et les liens à droite.
-     */
     justify-content: space-between;
-
-    /* Centre verticalement les éléments */
     align-items: center;
-
-    /*
-     * Ajoute 15 pixels en haut et en bas,
-     * puis 40 pixels à gauche et à droite.
-     */
-    padding: 15px 40px;
-
-    /* Couleur verte de la barre de navigation */
-    background-color: #176b3a;
+    padding: 18px 40px;
+    background-color: var(--vert-fonce);
 }
 
-/*
- * Style du logo "Zoo Arcadia".
- */
 .logo {
-    /* Couleur blanche du texte */
-    color: white;
-
-    /* Taille du texte */
+    color: var(--blanc);
     font-size: 24px;
-
-    /* Met le texte en gras */
     font-weight: bold;
-
-    /*
-     * Supprime le soulignement du lien.
-     */
     text-decoration: none;
 }
 
-/*
- * Liste contenant les liens du menu.
- */
 .nav-links {
-    /*
-     * Place les liens horizontalement
-     * au lieu de les placer verticalement.
-     */
     display: flex;
-
-    /*
-     * Supprime les puces de la liste.
-     */
-    list-style: none;
-
-    /*
-     * Ajoute 25 pixels d'espace
-     * entre chaque lien.
-     */
     gap: 25px;
+    list-style: none;
 }
 
-/*
- * Style des liens contenus dans le menu.
- */
 .nav-links a {
-    /* Couleur blanche des liens */
-    color: white;
-
-    /* Supprime le soulignement */
+    color: var(--blanc);
+    font-size: 15px;
     text-decoration: none;
-
-    /* Met les liens en gras */
-    font-weight: bold;
 }
 
-/*
- * Style appliqué lorsqu'on place
- * la souris sur un lien.
- */
 .nav-links a:hover {
-    /* Change la couleur du lien au survol */
-    color: #f4d35e;
+    color: var(--jaune);
 }
 
-/*
- * Zone principale de la page.
- */
-main {
-    /*
-     * Centre horizontalement
-     * le texte de la page.
-     */
+/* Section principale */
+.hero {
+    min-height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
     text-align: center;
+    background: linear-gradient(
+        to top,
+        var(--vert-nature),
+        var(--blanc)
+    );
+    border-radius: 0 0 25px 25px;
+}
 
-    /*
-     * Ajoute 50 pixels en haut et en bas,
-     * puis 20 pixels à gauche et à droite.
-     */
-    padding: 50px 20px;
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    color: var(--vert-fonce);
+    font-size: 42px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Bouton */
+.btn-primary {
+    display: inline-block;
+    padding: 14px 24px;
+    background-color: var(--vert-fonce);
+    color: var(--blanc);
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #0e4827;
+}
+
+/* Sections */
+.presentation,
+.habitats,
+.services {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: var(--vert-fonce);
+    font-size: 30px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Cartes */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    width: 280px;
+    padding: 25px;
+    background-color: var(--blanc);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--vert-fonce);
+}
+
+/* Pied de page */
+.footer {
+    padding: 45px 20px 20px;
+    background-color: var(--vert-fonce);
+    color: var(--blanc);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-column {
+    max-width: 280px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    color: var(--jaune);
+}
+
+.footer-column p {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.footer-bottom {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(255 255 255 / 30%);
+    text-align: center;
+}
+
+/* Adaptation aux téléphones */
+@media (width <= 700px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
