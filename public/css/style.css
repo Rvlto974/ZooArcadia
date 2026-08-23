@@ -1,3 +1,138 @@
+/*
+ * Sélecteur universel :
+ * s'applique à tous les éléments de la page.
+ */
+* {
+    /* Supprime les marges par défaut du navigateur */
+    margin: 0;
+
+    /* Supprime les espacements intérieurs par défaut */
+    padding: 0;
+
+    /*
+     * La largeur et la hauteur incluent aussi
+     * les bordures et les espacements intérieurs.
+     */
+    box-sizing: border-box;
+}
+
+/*
+ * Style général du corps de la page.
+ */
 body {
-    background-color: blue;
+    /* Définit la police utilisée sur le site */
+    font-family: Arial, sans-serif;
+
+    /* Définit la couleur d'arrière-plan de la page */
+    background-color: #87ceeb;
+}
+
+/*
+ * Barre de navigation principale.
+ */
+.navbar {
+    /*
+     * Active Flexbox pour organiser
+     * le logo et le menu sur une ligne.
+     */
+    display: flex;
+
+    /*
+     * Place le logo à gauche
+     * et les liens à droite.
+     */
+    justify-content: space-between;
+
+    /* Centre verticalement les éléments */
+    align-items: center;
+
+    /*
+     * Ajoute 15 pixels en haut et en bas,
+     * puis 40 pixels à gauche et à droite.
+     */
+    padding: 15px 40px;
+
+    /* Couleur verte de la barre de navigation */
+    background-color: #176b3a;
+}
+
+/*
+ * Style du logo "Zoo Arcadia".
+ */
+.logo {
+    /* Couleur blanche du texte */
+    color: white;
+
+    /* Taille du texte */
+    font-size: 24px;
+
+    /* Met le texte en gras */
+    font-weight: bold;
+
+    /*
+     * Supprime le soulignement du lien.
+     */
+    text-decoration: none;
+}
+
+/*
+ * Liste contenant les liens du menu.
+ */
+.nav-links {
+    /*
+     * Place les liens horizontalement
+     * au lieu de les placer verticalement.
+     */
+    display: flex;
+
+    /*
+     * Supprime les puces de la liste.
+     */
+    list-style: none;
+
+    /*
+     * Ajoute 25 pixels d'espace
+     * entre chaque lien.
+     */
+    gap: 25px;
+}
+
+/*
+ * Style des liens contenus dans le menu.
+ */
+.nav-links a {
+    /* Couleur blanche des liens */
+    color: white;
+
+    /* Supprime le soulignement */
+    text-decoration: none;
+
+    /* Met les liens en gras */
+    font-weight: bold;
+}
+
+/*
+ * Style appliqué lorsqu'on place
+ * la souris sur un lien.
+ */
+.nav-links a:hover {
+    /* Change la couleur du lien au survol */
+    color: #f4d35e;
+}
+
+/*
+ * Zone principale de la page.
+ */
+main {
+    /*
+     * Centre horizontalement
+     * le texte de la page.
+     */
+    text-align: center;
+
+    /*
+     * Ajoute 50 pixels en haut et en bas,
+     * puis 20 pixels à gauche et à droite.
+     */
+    padding: 50px 20px;
 }

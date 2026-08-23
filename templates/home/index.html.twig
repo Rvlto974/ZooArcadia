@@ -1,8 +1,112 @@
-{% extends 'base.html.twig' %}
+{# Indique que nous utilisons la version HTML5 #}
+<!DOCTYPE html>
 
-{% block title %}Accueil - Zoo Arcadia{% endblock %}
+{# Début du document HTML. La langue principale est le français #}
+<html lang="fr">
 
-{% block body %}
-    <h1>Bienvenue au Zoo Arcadia</h1>
-    <p>Découvrez nos animaux et nos différents habitats.</p>
-{% endblock %}
+<head>
+    {# Permet d'afficher correctement les accents français #}
+    <meta charset="UTF-8">
+
+    {# 
+        Titre affiché dans l'onglet du navigateur.
+        Le contenu peut être remplacé par chaque page enfant.
+    #}
+    <title>
+        {% block title %}
+            Zoo Arcadia
+        {% endblock %}
+    </title>
+
+    {# 
+        Charge le fichier CSS situé dans :
+        public/css/style.css
+
+        asset() permet à Symfony de trouver correctement le fichier.
+    #}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+
+<body>
+
+    {# 
+        Début de la barre de navigation.
+        La classe "navbar" permet de la personnaliser avec le CSS.
+    #}
+    <nav class="navbar">
+
+        {# 
+            Logo du zoo.
+            path('app_home') crée automatiquement un lien
+            vers la route Symfony appelée "app_home".
+        #}
+        <a href="{{ path('app_home') }}" class="logo">
+            Zoo Arcadia
+        </a>
+
+        {# 
+            Liste contenant les différents liens du menu.
+            La classe "nav-links" sera utilisée dans le fichier CSS.
+        #}
+        <ul class="nav-links">
+
+            {# Lien vers la page d'accueil #}
+            <li>
+                <a href="{{ path('app_home') }}">Accueil</a>
+            </li>
+
+            {# 
+                Lien vers la page des animaux.
+                Le symbole "#" est temporaire :
+                il faudra le remplacer par une vraie route plus tard.
+            #}
+            <li>
+                <a href="#">Animaux</a>
+            </li>
+
+            {# Lien temporaire vers la page des habitats #}
+            <li>
+                <a href="#">Habitats</a>
+            </li>
+
+            {# Lien temporaire vers la page des services #}
+            <li>
+                <a href="#">Services</a>
+            </li>
+
+            {# Lien temporaire vers la page de contact #}
+            <li>
+                <a href="#">Contact</a>
+            </li>
+
+        {# Fin de la liste des liens #}
+        </ul>
+
+    {# Fin de la barre de navigation #}
+    </nav>
+
+
+    {# 
+        Balise contenant le contenu principal de chaque page.
+        La classe "main" peut recevoir du CSS si nécessaire.
+    #}
+    <main>
+
+        {# 
+            Ce bloc sera remplacé par le contenu des autres pages.
+
+            Exemple :
+            dans home/index.html.twig, le texte situé
+            dans {% block body %} apparaîtra ici.
+        #}
+        {% block body %}
+        {% endblock %}
+
+    {# Fin du contenu principal #}
+    </main>
+
+{# Fin du corps de la page #}
+</body>
+
+{# Fin du document HTML #}
+</html>
