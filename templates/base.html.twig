@@ -7,22 +7,26 @@
     <title>{% block title %}Zoo Arcadia{% endblock %}</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    {% block stylesheets %}{% endblock %}
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="{{ path('app_home') }}" class="logo">
-            Zoo Arcadia
-        </a>
+    <header>
+        <nav class="navbar">
+            <a href="{{ path('app_home') }}" class="logo">
+                Zoo Arcadia
+            </a>
 
-        <ul class="nav-links">
-            <li><a href="{{ path('app_home') }}">Accueil</a></li>
-            <li><a href="#">Animaux</a></li>
-            <li><a href="#">Habitats</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+            <ul class="nav-links">
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="{{ path('app_home') }}#presentation">Présentation</a></li>
+                <li><a href="{{ path('app_home') }}#habitats">Habitats</a></li>
+                <li><a href="{{ path('app_home') }}#services">Services</a></li>
+                <li><a href="{{ path('app_home') }}#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         {% block body %}{% endblock %}
@@ -32,7 +36,8 @@
         <p>&copy; {{ "now"|date("Y") }} Zoo Arcadia</p>
     </footer>
 
-    {# Fichier JavaScript principal #}
-    <script src="{{ asset('js/script.js') }}"></script>
+    {% block javascripts %}
+        {{ importmap('app') }}
+    {% endblock %}
 </body>
 </html>
