@@ -1,112 +1,89 @@
-{# Indique que nous utilisons la version HTML5 #}
-<!DOCTYPE html>
+{% extends 'base.html.twig' %}
 
-{# Début du document HTML. La langue principale est le français #}
-<html lang="fr">
+{% block title %}Accueil - Zoo Arcadia{% endblock %}
 
-<head>
-    {# Permet d'afficher correctement les accents français #}
-    <meta charset="UTF-8">
+{% block body %}
 
-    {# 
-        Titre affiché dans l'onglet du navigateur.
-        Le contenu peut être remplacé par chaque page enfant.
-    #}
-    <title>
-        {% block title %}
-            Zoo Arcadia
-        {% endblock %}
-    </title>
+    {# Section principale d'accueil #}
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue au Zoo Arcadia</h1>
 
-    {# 
-        Charge le fichier CSS situé dans :
-        public/css/style.css
+            <p>
+                Découvrez nos animaux, nos habitats naturels
+                et nos actions pour protéger la biodiversité.
+            </p>
 
-        asset() permet à Symfony de trouver correctement le fichier.
-    #}
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
+            <a href="#presentation" class="btn-primary">
+                Découvrir le zoo
+            </a>
+        </div>
+    </section>
 
-<body>
+    {# Présentation du zoo #}
+    <section id="presentation" class="presentation">
+        <h2>Présentation du zoo</h2>
 
-    {# 
-        Début de la barre de navigation.
-        La classe "navbar" permet de la personnaliser avec le CSS.
-    #}
-    <nav class="navbar">
+        <p>
+            Le Zoo Arcadia accueille de nombreuses espèces animales
+            dans des environnements adaptés à leurs besoins.
+        </p>
+    </section>
 
-        {# 
-            Logo du zoo.
-            path('app_home') crée automatiquement un lien
-            vers la route Symfony appelée "app_home".
-        #}
-        <a href="{{ path('app_home') }}" class="logo">
-            Zoo Arcadia
-        </a>
+    {# Section des habitats #}
+    <section id="habitats" class="habitats">
+        <h2>Nos habitats</h2>
 
-        {# 
-            Liste contenant les différents liens du menu.
-            La classe "nav-links" sera utilisée dans le fichier CSS.
-        #}
-        <ul class="nav-links">
+        <div class="card-container">
+            <article class="card">
+                <h3>La savane</h3>
+                <p>
+                    Découvrez les lions, les girafes et les éléphants.
+                </p>
+            </article>
 
-            {# Lien vers la page d'accueil #}
-            <li>
-                <a href="{{ path('app_home') }}">Accueil</a>
-            </li>
+            <article class="card">
+                <h3>La jungle</h3>
+                <p>
+                    Observez les singes, les perroquets et les félins.
+                </p>
+            </article>
 
-            {# 
-                Lien vers la page des animaux.
-                Le symbole "#" est temporaire :
-                il faudra le remplacer par une vraie route plus tard.
-            #}
-            <li>
-                <a href="#">Animaux</a>
-            </li>
+            <article class="card">
+                <h3>La zone aquatique</h3>
+                <p>
+                    Explorez l'univers des crocodiles, tortues et poissons.
+                </p>
+            </article>
+        </div>
+    </section>
 
-            {# Lien temporaire vers la page des habitats #}
-            <li>
-                <a href="#">Habitats</a>
-            </li>
+    {# Section des services #}
+    <section id="services" class="services">
+        <h2>Nos services</h2>
 
-            {# Lien temporaire vers la page des services #}
-            <li>
-                <a href="#">Services</a>
-            </li>
+        <div class="card-container">
+            <article class="card">
+                <h3>Visites guidées</h3>
+                <p>
+                    Profitez d'une visite accompagnée par notre équipe.
+                </p>
+            </article>
 
-            {# Lien temporaire vers la page de contact #}
-            <li>
-                <a href="#">Contact</a>
-            </li>
+            <article class="card">
+                <h3>Restauration</h3>
+                <p>
+                    Faites une pause dans nos espaces de restauration.
+                </p>
+            </article>
 
-        {# Fin de la liste des liens #}
-        </ul>
+            <article class="card">
+                <h3>Boutique</h3>
+                <p>
+                    Retrouvez des souvenirs du Zoo Arcadia.
+                </p>
+            </article>
+        </div>
+    </section>
 
-    {# Fin de la barre de navigation #}
-    </nav>
-
-
-    {# 
-        Balise contenant le contenu principal de chaque page.
-        La classe "main" peut recevoir du CSS si nécessaire.
-    #}
-    <main>
-
-        {# 
-            Ce bloc sera remplacé par le contenu des autres pages.
-
-            Exemple :
-            dans home/index.html.twig, le texte situé
-            dans {% block body %} apparaîtra ici.
-        #}
-        {% block body %}
-        {% endblock %}
-
-    {# Fin du contenu principal #}
-    </main>
-
-{# Fin du corps de la page #}
-</body>
-
-{# Fin du document HTML #}
-</html>
+{% endblock %}
