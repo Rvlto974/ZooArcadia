@@ -1,27 +1,44 @@
-/* Réinitialisation générale */
+
+
+
+/* =========================
+   Réinitialisation générale
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Couleurs principales */
+/* =========================
+   Couleurs principales
+========================= */
+
 :root {
     --vert-fonce: #176b3a;
-    --vert-nature: #6fcf97;
+    --vert-clair: #f1f8f3;
+    --vert-nature: #dff3e3;
     --jaune: #f4d35e;
     --blanc: #ffffff;
     --texte: #163b25;
 }
 
-/* Style général */
+/* =========================
+   Style général de la page
+========================= */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f1f8f3;
+    background-color: var(--vert-clair);
     color: var(--texte);
+    font-size: 16px;
 }
 
-/* Navigation */
+/* =========================
+   Barre de navigation
+========================= */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,6 +47,8 @@ body {
     background-color: var(--vert-fonce);
 }
 
+/* Logo du zoo */
+
 .logo {
     color: var(--blanc);
     font-size: 24px;
@@ -37,23 +56,33 @@ body {
     text-decoration: none;
 }
 
+/* Liste des liens */
+
 .nav-links {
     display: flex;
     gap: 25px;
     list-style: none;
 }
 
+/* Liens de navigation */
+
 .nav-links a {
     color: var(--blanc);
     font-size: 15px;
+    font-weight: bold;
     text-decoration: none;
 }
+
+/* Effet au survol */
 
 .nav-links a:hover {
     color: var(--jaune);
 }
 
-/* Section principale */
+/* =========================
+   Section principale
+========================= */
+
 .hero {
     min-height: 430px;
     display: flex;
@@ -61,17 +90,20 @@ body {
     align-items: center;
     padding: 40px 20px;
     text-align: center;
-    background: linear-gradient(
-        to top,
-        var(--vert-nature),
-        var(--blanc)
-    );
+
+    /* Fond blanc pour supprimer le bleu */
+    background-color: var(--blanc);
+
     border-radius: 0 0 25px 25px;
 }
+
+/* Contenu de la section principale */
 
 .hero-content {
     max-width: 700px;
 }
+
+/* Titre principal */
 
 .hero h1 {
     margin-bottom: 20px;
@@ -79,13 +111,16 @@ body {
     font-size: 42px;
 }
 
+/* Texte principal */
+
 .hero p {
     margin-bottom: 30px;
     font-size: 18px;
     line-height: 1.6;
 }
 
-/* Bouton */
+/* Bouton principal */
+
 .btn-primary {
     display: inline-block;
     padding: 14px 24px;
@@ -93,13 +128,20 @@ body {
     color: var(--blanc);
     border-radius: 6px;
     text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
 }
+
+/* Effet au survol du bouton */
 
 .btn-primary:hover {
     background-color: #0e4827;
+    transform: translateY(-2px);
 }
 
-/* Sections */
+/* =========================
+   Sections du site
+========================= */
+
 .presentation,
 .habitats,
 .services {
@@ -107,7 +149,10 @@ body {
     margin: auto;
     padding: 70px 20px;
     text-align: center;
+    background-color: var(--vert-clair);
 }
+
+/* Titres des sections */
 
 h2 {
     margin-bottom: 20px;
@@ -115,11 +160,16 @@ h2 {
     font-size: 30px;
 }
 
+/* Paragraphes */
+
 p {
     line-height: 1.6;
 }
 
-/* Cartes */
+/* =========================
+   Conteneur des cartes
+========================= */
+
 .card-container {
     display: flex;
     justify-content: center;
@@ -127,6 +177,8 @@ p {
     flex-wrap: wrap;
     margin-top: 30px;
 }
+
+/* Une carte */
 
 .card {
     width: 280px;
@@ -136,17 +188,24 @@ p {
     box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
 }
 
+/* Titre d'une carte */
+
 .card h3 {
     margin-bottom: 15px;
     color: var(--vert-fonce);
 }
 
-/* Pied de page */
+/* =========================
+   Pied de page
+========================= */
+
 .footer {
     padding: 45px 20px 20px;
     background-color: var(--vert-fonce);
     color: var(--blanc);
 }
+
+/* Organisation des colonnes */
 
 .footer-content {
     display: flex;
@@ -156,34 +215,50 @@ p {
     margin: auto;
 }
 
+/* Chaque colonne */
+
 .footer-column {
     max-width: 280px;
 }
+
+/* Titres des colonnes */
 
 .footer-column h3 {
     margin-bottom: 15px;
     color: var(--jaune);
 }
 
+/* Texte du footer */
+
 .footer-column p {
-    margin-bottom: 8px;
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.6;
 }
+
+/* Copyright */
 
 .footer-bottom {
-    margin-top: 35px;
-    padding-top: 20px;
+    margin-top: 30px;
+    padding-top: 15px;
     border-top: 1px solid rgb(255 255 255 / 30%);
     text-align: center;
+    font-size: 13px;
 }
 
-/* Adaptation aux téléphones */
+/* =========================
+   Adaptation aux téléphones
+========================= */
+
 @media (width <= 700px) {
+    /* Navigation verticale */
+
     .navbar {
         flex-direction: column;
         gap: 15px;
         padding: 20px;
     }
+
+    /* Liens centrés */
 
     .nav-links {
         gap: 12px;
@@ -191,13 +266,41 @@ p {
         justify-content: center;
     }
 
+    /* Titre plus petit */
+
     .hero h1 {
         font-size: 32px;
     }
+
+    /* Footer vertical */
 
     .footer-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
+}
+/* Supprime définitivement le fond bleu */
+html,
+body {
+    margin: 0;
+    background-color: #f1f8f3 !important;
+}
+
+/* Les sections prennent toute la largeur */
+.presentation,
+.habitats,
+.services {
+    max-width: none;
+    width: 100%;
+    background-color: #f1f8f3 !important;
+}
+
+/* Contenu limité au centre */
+.presentation > *,
+.habitats > *,
+.services > * {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
