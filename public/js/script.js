@@ -1,19 +1,17 @@
 // On attend que le HTML soit complètement chargé
 document.addEventListener("DOMContentLoaded", function () {
-    // On récupère le bouton
-    const bouton = document.querySelector("#toggle-habitats");
 
-    // On récupère la liste des habitats
+    // =========================
+    // Afficher / cacher les habitats
+    // =========================
+
+    const bouton = document.querySelector("#toggle-habitats");
     const listeHabitats = document.querySelector("#liste-habitats");
 
-    // On vérifie que les éléments existent
     if (bouton && listeHabitats) {
-        // On détecte le clic sur le bouton
         bouton.addEventListener("click", function () {
-            // On ajoute ou retire la classe "cache"
             listeHabitats.classList.toggle("cache");
 
-            // On modifie le texte du bouton
             if (listeHabitats.classList.contains("cache")) {
                 bouton.textContent = "Afficher les habitats";
             } else {
@@ -21,4 +19,24 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // =========================
+    // Animation des éléments au défilement
+    // =========================
+
+    const elements = document.querySelectorAll(".animation-scroll");
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    elements.forEach(function (element) {
+        observer.observe(element);
+    });
 });

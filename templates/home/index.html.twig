@@ -1,213 +1,111 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html.twig' %}
 
-    <title>Zoo Nature</title>
+{% block title %}Accueil - Zoo Arcadia{% endblock %}
 
-    {# Lien vers le fichier CSS #}
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
+{% block body %}
 
-<body>
-
-    {# =========================
-       Barre de navigation
-    ========================== #}
-    <header class="navbar">
-
-        {# Logo du site #}
-        <a href="{{ path('app_home') }}" class="logo">
-            Zoo Nature
-        </a>
-
-        {# Liens de navigation #}
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#presentation">Présentation</a></li>
-                <li><a href="#habitats">Habitats</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-    </header>
-
-
-    <main>
-
-        {# =========================
-           Section principale
-        ========================== #}
-        <section class="hero">
-
-            <div class="hero-content">
-                <h1>Bienvenue au Zoo Nature</h1>
-
-                <p>
-                    Découvrez un espace dédié aux animaux,
-                    à la nature et à la protection de la biodiversité.
-                </p>
-
-                {# Bouton utilisé par JavaScript #}
-                <button id="toggle-habitats" class="btn-primary">
-                    Afficher les habitats
-                </button>
-            </div>
-
-        </section>
-
-
-        {# =========================
-           Section présentation
-        ========================== #}
-        <section id="presentation" class="presentation">
-
-            <h2>Présentation du zoo</h2>
+    {# Section principale d'accueil #}
+    <section class="hero animation-scroll">
+        <div class="hero-content">
+            <h1>Bienvenue au Zoo Arcadia</h1>
 
             <p>
-                Notre zoo accueille de nombreuses espèces animales
-                dans des environnements adaptés à leurs besoins.
+                Découvrez nos animaux, leurs habitats naturels
+                et nos actions pour protéger la biodiversité.
             </p>
 
-            <p>
-                Notre objectif est de sensibiliser les visiteurs
-                à la protection des animaux et de leur environnement.
-            </p>
-
-        </section>
-
-
-        {# =========================
-           Section habitats
-        ========================== #}
-        <section id="habitats" class="habitats">
-
-            <h2>Nos habitats</h2>
-
-            {# Cette liste est cachée au départ grâce à la classe cache #}
-            <div id="liste-habitats" class="card-container cache">
-
-                {# Première carte #}
-                <article class="card">
-                    <h3>La savane</h3>
-
-                    <p>
-                        Découvrez les lions, les girafes,
-                        les éléphants et les zèbres.
-                    </p>
-                </article>
-
-                {# Deuxième carte #}
-                <article class="card">
-                    <h3>La jungle</h3>
-
-                    <p>
-                        Observez les singes, les perroquets
-                        et les animaux vivant dans les forêts tropicales.
-                    </p>
-                </article>
-
-                {# Troisième carte #}
-                <article class="card">
-                    <h3>Le monde marin</h3>
-
-                    <p>
-                        Explorez l'univers des poissons,
-                        des tortues et des animaux marins.
-                    </p>
-                </article>
-
-            </div>
-
-        </section>
+            <a href="#presentation" class="btn-primary">
+                Découvrir le zoo
+            </a>
+        </div>
+    </section>
 
 
-        {# =========================
-           Section services
-        ========================== #}
-        <section id="services" class="services">
+    {# Présentation du zoo #}
+    <section id="presentation" class="presentation animation-scroll">
+        <h2>Présentation du zoo</h2>
 
-            <h2>Nos services</h2>
-
-            <div class="card-container">
-
-                <article class="card">
-                    <h3>Visites guidées</h3>
-
-                    <p>
-                        Participez à une visite accompagnée
-                        par un professionnel.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <h3>Espace restauration</h3>
-
-                    <p>
-                        Profitez d'un espace pour vous restaurer
-                        pendant votre visite.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <h3>Boutique</h3>
-
-                    <p>
-                        Retrouvez des souvenirs et des produits
-                        liés à la protection des animaux.
-                    </p>
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
+        <p>
+            Le Zoo Arcadia accueille de nombreuses espèces animales
+            dans des environnements adaptés à leurs besoins.
+        </p>
+    </section>
 
 
-    {# =========================
-       Pied de page
-    ========================== #}
-    <footer id="contact" class="footer">
+    {# Section des habitats #}
+    <section id="habitats" class="habitats animation-scroll">
+        <h2>Nos habitats</h2>
 
-        <div class="footer-content">
+        {# Bouton utilisé par le JavaScript #}
+        <button id="toggle-habitats" class="btn-primary">
+            Cacher les habitats
+        </button>
 
-            <div class="footer-column">
-                <h3>Zoo Nature</h3>
+        {# Liste des cartes d'habitats #}
+        <div id="liste-habitats" class="card-container">
+
+            {# Carte de la savane #}
+            <article class="card animation-scroll">
+                <h3>La savane</h3>
 
                 <p>
-                    Un lieu de découverte et de protection
-                    de la biodiversité.
+                    Découvrez les lions, les girafes et les éléphants.
                 </p>
-            </div>
+            </article>
 
-            <div class="footer-column">
-                <h3>Contact</h3>
+            {# Carte de la jungle #}
+            <article class="card animation-scroll">
+                <h3>La jungle</h3>
 
-                <p>Email : contact@zoonature.fr</p>
-                <p>Téléphone : 02 62 00 00 00</p>
-            </div>
+                <p>
+                    Observez les singes, les perroquets et les félins.
+                </p>
+            </article>
 
-            <div class="footer-column">
-                <h3>Adresse</h3>
+            {# Carte du marais #}
+            <article class="card animation-scroll">
+                <h3>Le marais</h3>
 
-                <p>12 rue de la Nature</p>
-                <p>La Réunion</p>
-            </div>
+                <p>
+                    Observez les animaux vivant dans les milieux humides.
+                </p>
+            </article>
 
         </div>
-
-        <p class="footer-bottom">
-            &copy; {{ "now"|date("Y") }} Zoo Nature - Tous droits réservés
-        </p>
-
-    </footer>
+    </section>
 
 
-    {# Fichier JavaScript principal #}
-    <script src="{{ asset('js/script.js') }}"></script>
+    {# Section des services #}
+    <section class="services animation-scroll">
+        <h2>Nos services</h2>
 
-</body>
-</html>
+        <div class="card-container">
+
+            <article class="card animation-scroll">
+                <h3>Visites guidées</h3>
+
+                <p>
+                    Apprenez-en plus sur les animaux avec nos soigneurs.
+                </p>
+            </article>
+
+            <article class="card animation-scroll">
+                <h3>Restauration</h3>
+
+                <p>
+                    Profitez de nos espaces de restauration pendant votre visite.
+                </p>
+            </article>
+
+            <article class="card animation-scroll">
+                <h3>Boutique</h3>
+
+                <p>
+                    Retrouvez des souvenirs du Zoo Arcadia.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+{% endblock %}

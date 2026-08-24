@@ -309,3 +309,21 @@ body {
 .cache {
     display: none;
 }
+
+/* Éléments invisibles au départ */
+.animation-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Éléments visibles après le défilement */
+.animation-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Classe utilisée pour cacher les habitats */
+.cache {
+    display: none;
+}
