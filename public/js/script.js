@@ -1,28 +1,24 @@
-// On attend que toute la page HTML soit chargée
+// On attend que le HTML soit complètement chargé
 document.addEventListener("DOMContentLoaded", function () {
+    // On récupère le bouton
+    const bouton = document.querySelector("#toggle-habitats");
 
-    // On récupère le bouton "Découvrir le zoo"
-    const bouton = document.querySelector(".btn-primary");
+    // On récupère la liste des habitats
+    const listeHabitats = document.querySelector("#liste-habitats");
 
-    // On vérifie que le bouton existe
-    if (bouton) {
-        bouton.addEventListener("click", function (event) {
+    // On vérifie que les éléments existent
+    if (bouton && listeHabitats) {
+        // On détecte le clic sur le bouton
+        bouton.addEventListener("click", function () {
+            // On ajoute ou retire la classe "cache"
+            listeHabitats.classList.toggle("cache");
 
-            // Empêche le comportement automatique du lien
-            event.preventDefault();
-
-            // On récupère la section presentation
-            const presentation = document.querySelector("#presentation");
-
-            // On fait défiler doucement vers cette section
-            if (presentation) {
-                presentation.scrollIntoView({
-                    behavior: "smooth"
-                });
+            // On modifie le texte du bouton
+            if (listeHabitats.classList.contains("cache")) {
+                bouton.textContent = "Afficher les habitats";
+            } else {
+                bouton.textContent = "Cacher les habitats";
             }
         });
     }
-
-    // Message de vérification dans la console
-    console.log("Le fichier JavaScript fonctionne !");
 });
