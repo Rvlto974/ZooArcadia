@@ -200,3 +200,43 @@ p {
         max-width: 280px;
     }
 }
+
+/* Cartes des habitats cliquables */
+.habitat-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habitat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 20%);
+}
+
+/* Description cachée par défaut */
+.habitat-card .details {
+    display: none;
+    margin-top: 15px;
+}
+
+/* Description visible après un clic */
+.habitat-card.active .details {
+    display: block;
+}
+
+/* Animation au défilement */
+.hero,
+.presentation,
+.habitats,
+.services,
+.contact,
+.card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Éléments visibles */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,104 +1,134 @@
+{# templates/home/index.html.twig #}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil - Zoo Arcadia{% endblock %}
+{# Titre de la page #}
+{% block title %}
+    Accueil - Zoo Arcadia
+{% endblock %}
 
 {% block body %}
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Bienvenue au Zoo Arcadia</h1>
+    {# Section principale d'accueil #}
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue au Zoo Arcadia</h1>
+
+            <p>
+                Découvrez nos animaux, leurs habitats naturels
+                et nos actions pour protéger la biodiversité.
+            </p>
+
+            <a href="#presentation" class="btn-primary">
+                Découvrir le zoo
+            </a>
+        </div>
+    </section>
+
+    {# Présentation du zoo #}
+    <section id="presentation" class="presentation">
+        <h2>Présentation du zoo</h2>
 
         <p>
-            Découvrez nos animaux, leurs habitats naturels
-            et nos actions pour protéger la biodiversité.
+            Le Zoo Arcadia accueille de nombreuses espèces animales
+            dans des environnements adaptés à leurs besoins.
+        </p>
+    </section>
+
+    {# Section des habitats #}
+    <section id="habitats" class="habitats">
+        <h2>Nos habitats</h2>
+
+        <p>
+            Cliquez sur une carte pour afficher sa description.
         </p>
 
-        <a href="#presentation" class="btn-primary">
-            Découvrir le zoo
-        </a>
-    </div>
-</section>
+        <div class="card-container">
 
-<section id="presentation" class="presentation">
-    <h2>Présentation du zoo</h2>
+            {# Carte de la savane #}
+            <article class="card habitat-card">
+                <h3>La savane</h3>
 
-    <p>
-        Le Zoo Arcadia accueille de nombreuses espèces animales
-        dans des environnements adaptés à leurs besoins.
-    </p>
-</section>
+                <p class="details">
+                    Découvrez les lions, les girafes, les éléphants
+                    et les zèbres dans leur environnement naturel.
+                </p>
+            </article>
 
-<section id="habitats" class="habitats">
-    <h2>Nos habitats</h2>
+            {# Carte de la jungle #}
+            <article class="card habitat-card">
+                <h3>La jungle</h3>
 
-    <div class="card-container">
-        <article class="card habitat-card">
-            <h3>La jungle</h3>
-            <p>
-                Découvrez un espace riche en végétation
-                et observez ses animaux fascinants.
-            </p>
-        </article>
+                <p class="details">
+                    Observez les singes, les perroquets et les tigres
+                    dans une végétation luxuriante.
+                </p>
+            </article>
 
-        <article class="card habitat-card">
-            <h3>La savane</h3>
-            <p>
-                Observez les animaux des grandes plaines
-                africaines.
-            </p>
-        </article>
+            {# Carte de la forêt #}
+            <article class="card habitat-card">
+                <h3>La forêt</h3>
 
-        <article class="card habitat-card">
-            <h3>Le marais</h3>
-            <p>
-                Explorez les milieux humides et leurs espèces
-                particulières.
-            </p>
-        </article>
-    </div>
-</section>
+                <p class="details">
+                    Rencontrez les ours, les loups et les cerfs
+                    dans un espace proche de la nature.
+                </p>
+            </article>
 
-<section id="services" class="services">
-    <h2>Nos services</h2>
+        </div>
+    </section>
 
-    <div class="card-container">
-        <article class="card">
-            <h3>Restauration</h3>
-            <p>
-                Profitez d'une pause repas dans un cadre naturel.
-            </p>
-        </article>
+    {# Section des services #}
+    <section id="services" class="services">
+        <h2>Nos services</h2>
 
-        <article class="card">
-            <h3>Accessibilité</h3>
-            <p>
-                Le zoo est accessible à tous les visiteurs.
-            </p>
-        </article>
+        <div class="card-container">
 
-        <article class="card">
-            <h3>Visites guidées</h3>
-            <p>
-                Découvrez les animaux accompagnés par nos équipes.
-            </p>
-        </article>
-    </div>
-</section>
+            <article class="card">
+                <h3>Visites guidées</h3>
 
-<section id="contact" class="contact">
-    <h2>Contactez-nous</h2>
+                <p>
+                    Découvrez les animaux accompagné par notre équipe.
+                </p>
+            </article>
 
-    <p>
-        Une question ? L'équipe du Zoo Arcadia est à votre écoute.
-    </p>
+            <article class="card">
+                <h3>Restauration</h3>
 
-    <p>
-        Téléphone : 0262 00 00 00
-    </p>
+                <p>
+                    Profitez de nos espaces de restauration pendant votre visite.
+                </p>
+            </article>
 
-    <p>
-        Email : contact@zoo-arcadia.fr
-    </p>
-</section>
+            <article class="card">
+                <h3>Boutique</h3>
+
+                <p>
+                    Retrouvez des souvenirs du Zoo Arcadia dans notre boutique.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    {# Section de contact #}
+    <section id="contact" class="contact">
+        <h2>Contactez-nous</h2>
+
+        <p>
+            Une question ? L'équipe du Zoo Arcadia est à votre écoute.
+        </p>
+
+        <p>
+            Téléphone : 0262 00 00 00
+        </p>
+
+        <p>
+            Email :
+            <a href="mailto:contact@zoo-arcadia.fr">
+                contact@zoo-arcadia.fr
+            </a>
+        </p>
+    </section>
 
 {% endblock %}
