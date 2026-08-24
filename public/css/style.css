@@ -240,3 +240,33 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Les descriptions sont cachées par défaut */
+.habitat-card .details {
+    display: none;
+}
+
+/* La description apparaît lorsque la carte est active */
+.habitat-card.active .details {
+    display: block;
+}
+
+/* Indique que la carte est cliquable */
+.habitat-card {
+    cursor: pointer;
+}
+
+/* Les cartes peuvent être cliquées */
+.habitat-card {
+    cursor: pointer;
+}
+
+/* Les descriptions sont cachées */
+.habitat-card .details {
+    display: none;
+}
+
+/* Les descriptions apparaissent après un clic */
+.habitat-card.active .details {
+    display: block;
+}

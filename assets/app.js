@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Ouverture et fermeture des détails des habitats
+    // Afficher ou cacher les détails des cartes
     const cartes = document.querySelectorAll(".habitat-card");
 
     cartes.forEach(function (carte) {
